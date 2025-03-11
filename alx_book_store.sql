@@ -12,7 +12,7 @@ CREATE TABLE Books (
     author_id INT,
     price DOUBLE,
     publication_date DATE,
-    FOREIGN KEY (author_id) REFERENCES Authors (author_id) ON DELETE SET NULL
+    FOREIGN KEY (author_id) REFERENCES Authors(author_id) ON DELETE SET NULL
 );
 
 CREATE TABLE Customers (
@@ -26,7 +26,7 @@ CREATE TABLE Orders (
     order_id INT AUTO_INCREMENT PRIMARY KEY,
     order_date DATE NOT NULL,
     customer_id INT,
-    FOREIGN KEY (customer_id) REFERENCES Customers (customer_id) ON DELETE CASCADE
+    FOREIGN KEY (customer_id) REFERENCES Customers(customer_id) ON DELETE CASCADE
 );
 
 CREATE TABLE Order_details (
@@ -34,6 +34,6 @@ CREATE TABLE Order_details (
     order_id INT,
     book_id INT,
     quantity INT NOT NULL,
-    FOREIGN KEY (order_id) REFERENCES Orders (order_id) ON DELETE CASCADE,
-    FOREIGN KEY (book_id) REFERENCES Books (book_id) ON DELETE CASCADE
+    FOREIGN KEY (order_id) REFERENCES Orders(order_id) ON DELETE CASCADE,
+    FOREIGN KEY (book_id) REFERENCES Books(book_id) ON DELETE CASCADE
 );
