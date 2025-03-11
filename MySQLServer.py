@@ -16,11 +16,16 @@ try:
     print("Database 'alx_book_store' created successfully!")
 
 except Error as e:
-    print(f"Error: {e}")
+    print("❌ Failed to create database. Please check your connection and credentials.")
+    print(f"Error details: {e}")
+
+except Exception as ex:
+    print("❌ An unexpected error occurred.")
+    print(f"Error details: {ex}")
 
 finally:
-    if 'cursor' in locals():
+    if 'cursor' in locals() and cursor:
         cursor.close()
     if 'mydb_master' in locals() and mydb_master.is_connected():
         mydb_master.close()
-        print("MySQL connection closed.")
+        print("✅ MySQL connection closed.")
